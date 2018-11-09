@@ -1,10 +1,9 @@
 # Installation
-</br>
-## Pre-req:
-</br>
-You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)</br>
-You have access to your raspberry pi using SSH</br>
-</br>
+
+## Pre-req
+You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)
+You have access to your raspberry pi using SSH
+
 ## Default Username and password used
 ```
 mysql
