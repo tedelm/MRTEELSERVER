@@ -6,12 +6,13 @@ You have a clean installation of raspberry pi (no webserver,database or such tha
 You have access to your raspberry pi using SSH</br>
 </br>
 ## Default Username and password used
-### mysql
 ```
+mysql
 Database: mrteeldb
 Username: mrteel
 Password: nosecretnow
 ```
+
 ## GenericTCP server
 The GenericTCP server uses port 9501
 
