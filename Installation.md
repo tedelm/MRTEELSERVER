@@ -7,32 +7,39 @@ You have access to your raspberry pi using SSH</br>
 </br>
 ## Default Username and password used
 ### mysql
+```
 Database: mrteeldb
 Username: mrteel
 Password: nosecretnow
-
+```
 ## GenericTCP server
 The GenericTCP server uses port 9501
 
 ## Set timezone and hostname
+```
 sudo raspi-config
-
+```
 ## upgrade OS
+```
 sudo apt-get update
 sudo apt-get dist-upgrade
-
+```
 ## Download MRTEELSERVER
+```
 git clone https://github.com/tedelm/MRTEELSERVER /home/pi/MRTEELSERVER
-
+```
 ## Install LAMP
+```
 sudo apt-get install apache2 mysql-server mysql-client python-mysql.connector
 sudo apt-get install php5 libapache2-mod-php5 php5-fpm php5-mysql php5-mysqlnd
-
+```
 ## Install PhpMyAdmin
+```
 sudo apt-get install phpmyadmin
-
+```
 
 ## Create database and add permissions
+```
 sudo mysql -u root -p
 
 CREATE DATABASE mrteeldb;
@@ -41,8 +48,9 @@ USE mrteeldb;
 CREATE USER 'mrteel' IDENTIFIED BY 'nosecretnow';
 GRANT USAGE ON *.* TO 'mrteel';
 GRANT ALL PRIVILEGES ON `mrteeldb`.* TO 'mrteel' WITH GRANT OPTION;
-
+```
 ### Create table
+```
 CREATE TABLE `Data` (
 	`Timestamp` datetime NOT NULL,
 	`Name` varchar(64) COLLATE ascii_bin NOT NULL,
@@ -84,7 +92,7 @@ CREATE TABLE `MyIspindles` (
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 	    
 QUIT;
-
+```
 ## Install MRTEELSERVER
 
 sudo apt-get install insserv</br>
