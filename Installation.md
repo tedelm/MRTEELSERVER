@@ -1,6 +1,6 @@
 # Installation
 </br>
-Pre-req:
+## Pre-req:
 </br>
 You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)</br>
 You have access to your raspberry pi using SSH</br>
