@@ -32,6 +32,35 @@ $SG = 1 + $Plato_3;
 ?>
 <html>
 <head>
+    <script type="text/javascript" src="js/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'SG', 'Temp'],
+          ['01:00:00',  055,  20],
+          ['01:30:00',  045,  20],
+          ['02:00:00',  040,  20],
+          ['01:00:00',  039,  20],
+          ['01:30:00',  038,  21],
+          ['02:00:00',  037,  20],
+          ['01:00:00',  036,  21],		  
+          ['02:30:00',  008,  21]
+        ]);
+
+        var options = {
+          title: 'SG (1.050 = 50 in chart) /Temp',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
@@ -64,25 +93,38 @@ $SG = 1 + $Plato_3;
         </td>
     </tr>
 </table>
-
-<div class="cardLongHeadline card-4">
-    iSpindel:
-</div>
-<div class="cardLongHeadline card-4">
-    recipe:
-</div>
-</br>
-<div class="cardLong card-4">
-    <?php echo $Name; ?>
-</div>
-<div class="cardLong card-4">
-    <?php if(isset($recipename)){
+<table border='0'>    
+    <tr>
+        <td>
+         <div class="cardLongHeadline card-4">
+            iSpindel:
+        </div>
+        </td>
+        <td>
+        <div class="cardLongHeadline card-4">
+        recipe:
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <div class="cardLong card-4">
+        <?php echo $Name; ?>
+        </div>
+        </td>
+        <td>
+        <div class="cardLong card-4">
+        <?php if(isset($recipename)){
         echo $recipename;
         }else{
             echo "N/A";
         };
-    ?>    
-</div>
+        ?>    
+        </div>
+        </td>
+    </tr>
+</table>
+    
 </br>
 <div class="card card-small">
     Temp</br>
@@ -132,6 +174,8 @@ $SG = 1 + $Plato_3;
         };
     ?>
 </div>
+
+<div id="curve_chart" class="card-small" style="width: 900px; height: 600px"></div>
 </center>
 </body>
 </html>
