@@ -11,6 +11,8 @@ Database: mrteeldb
 Username: mrteel
 Password: nosecretnow
 
+## GenericTCP server
+The GenericTCP server uses port 9501
 
 ## Set timezone and hostname
 sudo raspi-config
@@ -85,10 +87,10 @@ QUIT;
 
 ## Install MRTEELSERVER
 
-sudo apt-get install insserv
+sudo apt-get install insserv</br>
 
-Then, within the SSH terminal session, type:
-
+Then, within the SSH terminal session, type:</br>
+...
 cd /home/pi/MRTEELSERVER
 sudo mv ./mrteelserver.py /usr/local/bin
 sudo mv ./MRTEELSERVER /etc/init.d
@@ -98,10 +100,10 @@ cd /etc/init.d
 sudo systemctl daemon-reload
 sudo insserv MRTEELSERVER
 sudo service MRTEELSERVER start
-
+...
 You should be able to see the script running now:
-
+...
 ps -ax | grep MRTEELSERVER
-	
+...	
 ## Brows to your new site	
 http://192.168.1.100/iSpindel/tilttemp.php
