@@ -2,9 +2,9 @@
 
 // configure your database connection here:
 define('DB_SERVER',"localhost");
-define('DB_NAME',"iSpindle");
-define('DB_USER',"iSpindle");
-define('DB_PASSWORD',"ohyeah");
+define('DB_NAME',"mrteeldb");
+define('DB_USER',"mrteel");
+define('DB_PASSWORD',"nosecretnow");
  
 $conn = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
 if(is_resource($conn))

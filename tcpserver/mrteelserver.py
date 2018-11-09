@@ -51,10 +51,10 @@ DATETIME = 1  # Leave this at 1 to include Excel compatible timestamp in CSV
 # MySQL
 SQL = 1  # 1 to enable output to MySQL database
 SQL_HOST = '127.0.0.1'  # Database host name (default: localhost - 127.0.0.1 loopback interface)
-SQL_DB = 'iSpindle'  # Database name
+SQL_DB = 'mrteeldb'  # Database name
 SQL_TABLE = 'Data'  # Table name
-SQL_USER = 'iSpindle'  # DB user
-SQL_PASSWORD = 'ohyeah'  # DB user's password (change this)
+SQL_USER = 'mrteel'  # DB user
+SQL_PASSWORD = 'nosecretnow'  # DB user's password (change this)
 
 # Ubidots (using existing account)
 UBIDOTS = 0  # 1 to enable output to ubidots
