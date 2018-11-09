@@ -4,33 +4,6 @@
 You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)
 You have access to your raspberry pi using SSH
 
-## Default Username and password used
-```
-mysql
-Database: mrteeldb
-Username: mrteel
-Password: nosecretnow
-```
-
-## GenericTCP server
-The GenericTCP server uses port 9501</br>
-To troubleshoot use:</br>
-</br>
-see if your server is listening on port 9501:
-```
-ps -ax | grep MRTEELSERVER
-netstat -ano | grep "9501"
-```
-Enable debug mode, change DEBUG = 0, to DEBUG = 1 and stop service</br>
-```
-sudo nano /usr/local/bin/mrteelserver.py
-sudo service MRTEELSERVER stop
-
-Now you run the server in consol mode to see output:
-/usr/local/bin/mrteelserver.py
-
-```
-
 ## Set timezone and hostname
 ```
 sudo raspi-config
@@ -138,4 +111,31 @@ ps -ax | grep MRTEELSERVER
 ## Brows to your new site	
 ```
 http://<your raspberry pi ip>/index.php
+```
+
+## Default Username and password used
+```
+mysql
+Database: mrteeldb
+Username: mrteel
+Password: nosecretnow
+```
+
+## GenericTCP server
+The GenericTCP server uses port 9501</br>
+To troubleshoot use:</br>
+</br>
+see if your server is listening on port 9501:
+```
+ps -ax | grep MRTEELSERVER
+netstat -ano | grep "9501"
+```
+Enable debug mode, change DEBUG = 0, to DEBUG = 1 in mrteelserver.py and stop service</br>
+```
+sudo nano /usr/local/bin/mrteelserver.py
+sudo service MRTEELSERVER stop
+
+Now you run the server in consol mode to see output:
+/usr/local/bin/mrteelserver.py
+
 ```
