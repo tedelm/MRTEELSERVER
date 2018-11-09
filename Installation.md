@@ -83,8 +83,9 @@ CREATE TABLE `MyIspindles` (
 QUIT;
 ```
 ## Install MRTEELSERVER
-
-sudo apt-get install insserv</br>
+```
+sudo apt-get install insserv
+```
 
 Then, within the SSH terminal session, type:</br>
 ```
