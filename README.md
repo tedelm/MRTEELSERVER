@@ -1,8 +1,12 @@
 # MRTEELSERVER
-[Under construction]
-webserver for ispindel
+Webserver and GenericTCP-server for iSpindel
+
+## Alpha version now available!
+<a href='https://github.com/tedelm/MRTEELSERVER/blob/master/Installation.md'>https://github.com/tedelm/MRTEELSERVER/blob/master/Installation.md</a>
 
 
 
 
-Inspiration and some other things were taken from https://github.com/DottoreTozzi/iSpindel-TCP-Server
+
+
+Inspired by https://github.com/DottoreTozzi/iSpindel-TCP-Server
