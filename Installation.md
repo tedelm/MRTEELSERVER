@@ -43,7 +43,7 @@ GRANT ALL PRIVILEGES ON `mrteeldb`.* TO 'mrteel' WITH GRANT OPTION;
 CREATE TABLE `Data` (
 	`Timestamp` datetime NOT NULL,
 	`Name` varchar(64) COLLATE ascii_bin NOT NULL,
-	`ID` int NOT NULL AUTO_INCREMENT,
+	`ID_` int NOT NULL AUTO_INCREMENT,
 	`Angle` double NOT NULL,
 	`Temperature` double NOT NULL,
 	`Battery` double NOT NULL,
@@ -56,7 +56,7 @@ PRIMARY KEY (`Timestamp`,`Name`,`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Data';
 
 CREATE TABLE `MyIspindles` (
-	`ID` int NOT NULL AUTO_INCREMENT,
+	`ID_` int NOT NULL AUTO_INCREMENT,
 	`IspindelName` varchar(64) COLLATE ascii_bin,
     `Poly1` double NOT NULL,    
     `Poly2` double NOT NULL,    
@@ -65,10 +65,11 @@ CREATE TABLE `MyIspindles` (
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 	
 CREATE TABLE `MyRecipes` (
-	`ID` int NOT NULL AUTO_INCREMENT,
+	`ID_` int NOT NULL AUTO_INCREMENT,
 	`IspindelName` varchar(64) COLLATE ascii_bin,
 	`MyRecipeName` varchar(64) COLLATE ascii_bin,
 	`MyRecipeOG` double NOT NULL, 
+	`MyRecipeCalcFG` double NOT NULL, 	
 	`MyRecipeBrewDay` varchar(64) COLLATE ascii_bin,       
 	PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';

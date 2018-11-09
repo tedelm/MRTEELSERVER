@@ -15,25 +15,49 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
   $Gravity =  $r_everything['Gravity'];      
   $RSSI =  $r_everything['RSSI'];                    
 
-}	
+}
 
+$q_sql_ispindelrecipe = mysql_query("SELECT * FROM MyRecipes WHERE IspindelName='$Name' ORDER BY ID_ DESC LIMIT 1;") or die(mysql_error());
+while($r_ispindelrecipe = mysql_fetch_array($q_sql_ispindelrecipe))
+{
+  $MyRecipeName = $r_ispindelrecipe['MyRecipeName'];
+  $MyRecipeOG = $r_ispindelrecipe['MyRecipeOG'];
+  $MyRecipeCalcFG = $r_ispindelrecipe['MyRecipeCalcFG'];
+  $MyRecipeBrewDay = $r_ispindelrecipe['MyRecipeBrewDay'];  
+}
 
+$q_sql_ispindelcal = mysql_query("SELECT * FROM MyIspindles WHERE IspindelName='$Name' ORDER BY ID_ DESC LIMIT 1;") or die(mysql_error());
+while($r_ispindelcal = mysql_fetch_array($q_sql_ispindelcal))
+{
+  $Poly1 = (float)$r_ispindelcal['Poly1'];
+  $Poly2 = (float)$r_ispindelcal['Poly2'];
+  $Poly3 = (float)$r_ispindelcal['Poly3'];  
+   
+}
+
+if(strpos($Poly3, '-') !== false){
+    $Poly3 = str_replace("-","",$Poly3);
+    $Poly3 = (float)$Poly3;
+    $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle - $Poly3;
+}else{
+    $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle + $Poly3;
+}
 
 //Calculate plato/SG
 #$Plato = 0.004415613 * $Angle * $Angle + 0.120848707 * $Angle - 6.159197377;
-#  $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle $Poly3;
+
 #  $Plato_a = ($Poly1 * $Angle * $Angle);
 #  $Plato_b = ($Poly2 * $Angle $Poly3);
 #  $Plato = $Plato_a + $Plato_b;
  #$SG = 1+($plato/ (258.6–(($plato/258.2)*227.1)))
-#  $Plato_1 = ($Plato / 258.2) * 227.1;
-#  $Plato_2 =  258.6 - $Plato_1;
-#  $Plato_3 =  $Plato/$Plato_2;
-#  $SG = 1 + $Plato_3;
+$Plato_1 = ($Plato / 258.2) * 227.1;
+$Plato_2 =  258.6 - $Plato_1;
+$Plato_3 =  $Plato/$Plato_2;
+$SG = 1 + $Plato_3;
 
-#$recipename
-#$OG
-#$ABV
+#ABV = (OG - FG) * 131.25
+$ABV = ($MyRecipeOG - $SG) * 131.25;
+
 
 ?>
 <html>
@@ -97,6 +121,9 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
         <td>
           <div class="cardMenu card-4"><a href='devices.php'>Devices</a></div>            
         </td>
+        <td>
+          <div class="cardMenu card-4"><a href='recipes.php'>Recipes</a></div>            
+        </td>         
     </tr>
 </table>
 <table border='0'>    
@@ -120,8 +147,8 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
         </td>
         <td>
         <div class="cardLong card-4">
-        <?php if(isset($recipename)){
-        echo $recipename;
+        <?php if(isset($MyRecipeName)){
+        echo $MyRecipeName;
         }else{
             echo "N/A";
         };
@@ -164,8 +191,17 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
 </div>
 <div class="card card-small">
     OG</br>
-    <?php if(isset($OG)){
-        echo round($OG, 3);
+    <?php if(isset($MyRecipeOG)){
+        echo round($MyRecipeOG, 3);
+        }else{
+            echo "N/A";
+        };
+    ?>
+</div>
+<div class="card card-small">
+    Calc FG</br>
+    <?php if(isset($MyRecipeCalcFG)){
+        echo round($MyRecipeCalcFG, 3);
         }else{
             echo "N/A";
         };

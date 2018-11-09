@@ -10,7 +10,7 @@ switch ($_GET['action']) {
         $poly2 = $_POST['poly2'];
         $poly3 = $_POST['poly3'];      
         
-        $SQL_INSERT_Poly = "INSERT INTO MyIspindles (`ID`, `IspindelName`, `Poly1`, `Poly2`, `Poly3`) VALUES (NULL,'". $ispindelName ."','". $poly1 ."','". $poly2 ."','". $poly3 ."')";
+        $SQL_INSERT_Poly = "INSERT INTO MyIspindles (`ID_`, `IspindelName`, `Poly1`, `Poly2`, `Poly3`) VALUES (NULL,'". $ispindelName ."','". $poly1 ."','". $poly2 ."','". $poly3 ."')";
 							
         $SQL_INSERT_Poly_Result = mysql_query( $SQL_INSERT_Poly );
             IF(! $SQL_INSERT_Poly_Result ){
@@ -36,8 +36,41 @@ switch ($_GET['action']) {
 </head>
 
 <body>
+<center>
+<table border='0'>
+    <tr>
+        <td>
+            <img src='img/mrteellogo.png' width='55' height='75'>
+        </td>
+        <td>
+            <div id="container">
+            <p>
+            <a href="index.php">MRTEELSERVER</a>
+            </p>
+            </div>
+        </td>
+    </tr>
+</table>
+<table border='0'>    
+    <tr>
+        <td>
+          <div class="cardMenu card-4"><a href='index.php'>Dashboard</a></div>
+        </td>
+        <td>
+          <div class="cardMenu card-4"><a href='devices.php'>Devices</a></div>            
+        </td>
+        <td>
+          <div class="cardMenu card-4"><a href='recipes.php'>Recipes</a></div>            
+        </td>        
+    </tr>
+</table>
+</center>
+
 <h1>
-Set calibration poly (e.g. <b>0.004415613</b> * $tilt * $tilt + <b>0.120848707</b> * $tilt <b>-6.159197377</b>;)
+Calibration
+</h1>
+<h1>
+Set calibration poly (e.g. <b>0.004415613</b> * $tilt * $tilt + <b>0.120848707</b> * $tilt <b>-6.159197377</b>)
 </h1>
 </br>
 <form id='updatePoly' method='post' action='devices.php?action=updateispindel'>
