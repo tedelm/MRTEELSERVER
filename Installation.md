@@ -63,23 +63,24 @@ CREATE TABLE `Calibration` (
 	PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Calibration Data';
 
-
-CREATE TABLE `Config` (
-	`ID` int NOT NULL,
-	`Interval` int NOT NULL,
-	`Token` varchar(64) NOT NULL,
-	`Polynomial` varchar(64) NOT NULL,
-        `Sent` boolean NOT NULL,
-	PRIMARY KEY (`ID`)
-	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Config Data';
-	
 CREATE TABLE `MyIspindles` (
 	`ID` int NOT NULL,
-	`MyIspindle` int NOT NULL,
-	`Beer` varchar(64) NOT NULL,
+	`IspindelName` varchar(64) COLLATE ascii_bin,
+    `Poly1` double NOT NULL,    
+    `Poly2` double NOT NULL,    
+    `Poly3` double NOT NULL,            
 	PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
-	    
+	
+CREATE TABLE `MyRecipes` (
+	`ID` int NOT NULL,
+	`IspindelName` varchar(64) COLLATE ascii_bin,
+	`MyRecipeName` varchar(64) COLLATE ascii_bin,
+	`MyRecipeOG` varchar(64) COLLATE ascii_bin,  
+	`MyRecipeBrewDay` varchar(64) COLLATE ascii_bin,       
+	PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
+
 QUIT;
 ```
 ## Install MRTEELSERVER
