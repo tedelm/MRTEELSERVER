@@ -68,7 +68,7 @@ CREATE TABLE `MyRecipes` (
 	`ID` int NOT NULL,
 	`IspindelName` varchar(64) COLLATE ascii_bin,
 	`MyRecipeName` varchar(64) COLLATE ascii_bin,
-	`MyRecipeOG` varchar(64) COLLATE ascii_bin,  
+	`MyRecipeOG` double NOT NULL, 
 	`MyRecipeBrewDay` varchar(64) COLLATE ascii_bin,       
 	PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
