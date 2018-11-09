@@ -17,13 +17,31 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
 
 }	
 
+$q_sql_ispindelcal = mysql_query("SELECT * FROM MyIspindles WHERE IspindelName='$Name' ORDER BY 'ID_' DESC LIMIT 1;") or die(mysql_error());
+#$q_sql_ispindelcal = mysql_query("SELECT * FROM MyIspindles WHERE IspindelName='$Name';") or die(mysql_error());
+while($r_ispindelcal = mysql_fetch_array($q_sql_ispindelcal))
+{
+  $Poly1 = (float)$r_ispindelcal['Poly1'];
+  $Poly2 = (float)$r_ispindelcal['Poly2'];
+  $Poly3 = (float)$r_ispindelcal['Poly3'];  
+   
+}
+
+echo $Poly1;
+echo $Poly2;
+echo $Poly3;
+
 //Calculate plato/SG
-$Plato = 0.004415613 * $Angle * $Angle + 0.120848707 * $Angle - 6.159197377;
+#$Plato = 0.004415613 * $Angle * $Angle + 0.120848707 * $Angle - 6.159197377;
+#  $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle $Poly3;
+#  $Plato_a = ($Poly1 * $Angle * $Angle);
+#  $Plato_b = ($Poly2 * $Angle $Poly3);
+#  $Plato = $Plato_a + $Plato_b;
  #$SG = 1+($plato/ (258.6–(($plato/258.2)*227.1)))
-$Plato_1 = ($Plato / 258.2) * 227.1;
-$Plato_2 =  258.6 - $Plato_1;
-$Plato_3 =  $Plato/$Plato_2;
-$SG = 1 + $Plato_3;
+#  $Plato_1 = ($Plato / 258.2) * 227.1;
+#  $Plato_2 =  258.6 - $Plato_1;
+#  $Plato_3 =  $Plato/$Plato_2;
+#  $SG = 1 + $Plato_3;
 
 #$recipename
 #$OG
