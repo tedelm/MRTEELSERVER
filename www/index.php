@@ -8,7 +8,7 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
 {
   $timestamp = $r_everything['Timestamp'];
   $Name =  $r_everything['Name'];
-  $ID =  $r_everything['ID'];
+  #$ID =  $r_everything['ID_'];
   $Angle =  $r_everything['Angle'];            
   $Temperature =  $r_everything['Temperature'];
   $Battery =  $r_everything['Battery'];
