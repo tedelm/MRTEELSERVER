@@ -1,35 +1,36 @@
-#Installation
+# Installation
+</br>
 Pre-req:
-
-You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)
-You have access to your raspberry pi using SSH
-
-#Default Username and password used
-#mysql
+</br>
+You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)</br>
+You have access to your raspberry pi using SSH</br>
+</br>
+## Default Username and password used
+### mysql
 Database: mrteeldb
 Username: mrteel
 Password: nosecretnow
 
 
-#Set timezone and hostname
+## Set timezone and hostname
 sudo raspi-config
 
-#upgrade OS
+## upgrade OS
 sudo apt-get update
 sudo apt-get dist-upgrade
 
-#Download MRTEELSERVER
+## Download MRTEELSERVER
 git clone https://github.com/tedelm/MRTEELSERVER /home/pi/MRTEELSERVER
 
-#Install LAMP
+## Install LAMP
 sudo apt-get install apache2 mysql-server mysql-client python-mysql.connector
 sudo apt-get install php5 libapache2-mod-php5 php5-fpm php5-mysql php5-mysqlnd
 
-#Install PhpMyAdmin
+## Install PhpMyAdmin
 sudo apt-get install phpmyadmin
 
 
-#Create database and add permissions
+## Create database and add permissions
 sudo mysql -u root -p
 
 CREATE DATABASE mrteeldb;
@@ -39,7 +40,7 @@ CREATE USER 'mrteel' IDENTIFIED BY 'nosecretnow';
 GRANT USAGE ON *.* TO 'mrteel';
 GRANT ALL PRIVILEGES ON `mrteeldb`.* TO 'mrteel' WITH GRANT OPTION;
 
-#Create table
+### Create table
 CREATE TABLE `Data` (
 	`Timestamp` datetime NOT NULL,
 	`Name` varchar(64) COLLATE ascii_bin NOT NULL,
@@ -82,7 +83,7 @@ CREATE TABLE `MyIspindles` (
 	    
 QUIT;
 
-#Install MRTEELSERVER
+## Install MRTEELSERVER
 
 sudo apt-get install insserv
 
@@ -102,5 +103,5 @@ You should be able to see the script running now:
 
 ps -ax | grep MRTEELSERVER
 	
-#Brows to your new site	
+## Brows to your new site	
 http://192.168.1.100/iSpindel/tilttemp.php
