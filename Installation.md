@@ -13,7 +13,23 @@ Password: nosecretnow
 ```
 
 ## GenericTCP server
-The GenericTCP server uses port 9501
+The GenericTCP server uses port 9501</br>
+To troubleshoot use:</br>
+</br>
+see if your server is listening on port 9501:
+```
+ps -ax | grep MRTEELSERVER
+netstat -ano | grep "9501"
+```
+Enable debug mode, change DEBUG = 0, to DEBUG = 1 and stop service</br>
+```
+sudo nano /usr/local/bin/mrteelserver.py
+sudo service MRTEELSERVER stop
+
+Now you run the server in consol mode to see output:
+/usr/local/bin/mrteelserver.py
+
+```
 
 ## Set timezone and hostname
 ```
