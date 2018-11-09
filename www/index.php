@@ -16,7 +16,10 @@ while($r_everything = mysql_fetch_array($q_sql_everything))
   $RSSI =  $r_everything['RSSI'];                    
 
 }
+//Chart
+$q_sql_chart = mysql_query("SELECT * FROM Data WHERE Name='$Name' ORDER BY Timestamp ASC LIMIT 20;") or die(mysql_error());
 
+//Recipe
 $q_sql_ispindelrecipe = mysql_query("SELECT * FROM MyRecipes WHERE IspindelName='$Name' ORDER BY ID_ DESC LIMIT 1;") or die(mysql_error());
 while($r_ispindelrecipe = mysql_fetch_array($q_sql_ispindelrecipe))
 {
@@ -26,6 +29,7 @@ while($r_ispindelrecipe = mysql_fetch_array($q_sql_ispindelrecipe))
   $MyRecipeBrewDay = $r_ispindelrecipe['MyRecipeBrewDay'];  
 }
 
+//Poly calibration
 $q_sql_ispindelcal = mysql_query("SELECT * FROM MyIspindles WHERE IspindelName='$Name' ORDER BY ID_ DESC LIMIT 1;") or die(mysql_error());
 while($r_ispindelcal = mysql_fetch_array($q_sql_ispindelcal))
 {
@@ -35,6 +39,8 @@ while($r_ispindelcal = mysql_fetch_array($q_sql_ispindelcal))
    
 }
 
+//Calculate Plato from tilt
+#$Plato = 0.004415613 * $Angle * $Angle + 0.120848707 * $Angle - 6.159197377;
 if(strpos($Poly3, '-') !== false){
     $Poly3 = str_replace("-","",$Poly3);
     $Poly3 = (float)$Poly3;
@@ -43,12 +49,7 @@ if(strpos($Poly3, '-') !== false){
     $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle + $Poly3;
 }
 
-//Calculate plato/SG
-#$Plato = 0.004415613 * $Angle * $Angle + 0.120848707 * $Angle - 6.159197377;
-
-#  $Plato_a = ($Poly1 * $Angle * $Angle);
-#  $Plato_b = ($Poly2 * $Angle $Poly3);
-#  $Plato = $Plato_a + $Plato_b;
+//Calculate SG
  #$SG = 1+($plato/ (258.6–(($plato/258.2)*227.1)))
 $Plato_1 = ($Plato / 258.2) * 227.1;
 $Plato_2 =  258.6 - $Plato_1;
@@ -69,15 +70,33 @@ $ABV = ($MyRecipeOG - $SG) * 131.25;
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Time', 'SG', 'Temp'],
-          ['01:00:00',  055,  20],
-          ['01:30:00',  045,  20],
-          ['02:00:00',  040,  20],
-          ['01:00:00',  039,  20],
-          ['01:30:00',  038,  21],
-          ['02:00:00',  037,  20],
-          ['01:00:00',  036,  21],		  
-          ['02:30:00',  008,  21]
+            ['Time', 'SG', 'Temp'],
+            <?php
+            while($r_chart = mysql_fetch_array($q_sql_chart))
+            {
+                $Timestamp = $r_chart['Timestamp'];
+                    $YYYYmmdd = explode(" ", $Timestamp);
+                $Temperature =  (float)$r_chart['Temperature'];
+                $Angle =  (float)$r_chart['Angle'];
+
+                if(strpos($Poly3, '-') !== false){
+                    $Poly3 = str_replace("-","",$Poly3);
+                    $Poly3 = (float)$Poly3;
+                    $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle - $Poly3;
+                }else{
+                    $Plato = $Poly1 * $Angle * $Angle + $Poly2 * $Angle + $Poly3;
+                }
+                $Plato_1 = ($Plato / 258.2) * 227.1;
+                $Plato_2 =  258.6 - $Plato_1;
+                $Plato_3 =  $Plato/$Plato_2;
+                $SG = 1 + $Plato_3;          
+                    $SG_Small = explode(".", round($SG, 3));                    
+                
+                
+                echo "['$YYYYmmdd[0]', $SG_Small[1], $Temperature],";
+            }
+
+            ?>
         ]);
 
         var options = {
