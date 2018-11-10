@@ -61,7 +61,7 @@ CREATE TABLE `MyIspindles` (
     `Poly1` double NOT NULL,    
     `Poly2` double NOT NULL,    
     `Poly3` double NOT NULL,            
-	PRIMARY KEY (`ID`)
+	PRIMARY KEY (`ID_`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 	
 CREATE TABLE `MyRecipes` (
@@ -71,7 +71,7 @@ CREATE TABLE `MyRecipes` (
 	`MyRecipeOG` double NOT NULL, 
 	`MyRecipeCalcFG` double NOT NULL, 	
 	`MyRecipeBrewDay` varchar(64) COLLATE ascii_bin,       
-	PRIMARY KEY (`ID`)
+	PRIMARY KEY (`ID_`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 
 QUIT;
