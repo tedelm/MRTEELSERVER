@@ -360,3 +360,24 @@ align-items: center; /* align vertical */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    
   }
 
+  .selectIspindel {
+    font-size: 2em;
+    color: #FF9900;
+    font-family: Audiowide;
+  }
+
+.ispindelform select {
+  font-size: 1em;
+  color: #FF9900;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    
+}
+
+#ispindelform{
+  width:150px;   
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif   
+ }
+ #ispindelform option{
+  width:150px;   
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif   
+ }
+ 
