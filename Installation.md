@@ -52,7 +52,7 @@ CREATE TABLE `Data` (
 	`UserToken` varchar(64) COLLATE ascii_bin,
 	`Interval` int,
 	`RSSI` int,
-PRIMARY KEY (`Timestamp`,`Name`,`ID`)
+PRIMARY KEY (`Timestamp`,`Name`,`ID_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Data';
 
 CREATE TABLE `MyIspindles` (
