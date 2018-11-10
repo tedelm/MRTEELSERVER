@@ -57,8 +57,9 @@ $Plato_3 =  $Plato/$Plato_2;
 $SG = 1 + $Plato_3;
 
 #ABV = (OG - FG) * 131.25
-$ABV = ($MyRecipeOG - $SG) * 131.25;
-
+$ABV_a = (int)$MyRecipeOG - round($SG, 3);
+$ABV_b = (float)str_replace("-","",$ABV_a);
+$ABV = $ABV_b * 131.25;
 
 ?>
 <html>
@@ -229,7 +230,7 @@ $ABV = ($MyRecipeOG - $SG) * 131.25;
 <div class="card card-small">
     ABV</br>
     <?php if(isset($ABV)){
-        echo round($ABV, 3);
+        echo round($ABV, 2);
         }else{
             echo "N/A";
         };

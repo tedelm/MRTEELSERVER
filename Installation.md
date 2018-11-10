@@ -52,7 +52,7 @@ CREATE TABLE `Data` (
 	`UserToken` varchar(64) COLLATE ascii_bin,
 	`Interval` int,
 	`RSSI` int,
-PRIMARY KEY (`Timestamp`,`Name`,`ID`)
+PRIMARY KEY (`Timestamp`,`Name`,`ID_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Data';
 
 CREATE TABLE `MyIspindles` (
@@ -61,7 +61,7 @@ CREATE TABLE `MyIspindles` (
     `Poly1` double NOT NULL,    
     `Poly2` double NOT NULL,    
     `Poly3` double NOT NULL,            
-	PRIMARY KEY (`ID`)
+	PRIMARY KEY (`ID_`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 	
 CREATE TABLE `MyRecipes` (
@@ -71,7 +71,7 @@ CREATE TABLE `MyRecipes` (
 	`MyRecipeOG` double NOT NULL, 
 	`MyRecipeCalcFG` double NOT NULL, 	
 	`MyRecipeBrewDay` varchar(64) COLLATE ascii_bin,       
-	PRIMARY KEY (`ID`)
+	PRIMARY KEY (`ID_`)
 	) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='My iSpindle info';
 
 QUIT;
@@ -84,8 +84,6 @@ sudo apt-get install insserv
 Then, within the SSH terminal session, type:</br>
 ```
 cd /home/pi/MRTEELSERVER
-sudo mv ./www/* /var/www/html
-sudo mv ./www/* /var/www/html
 sudo mv ./www/* /var/www/html
 
 sudo mv ./tcpserver/mrteelserver.py /usr/local/bin
