@@ -85,10 +85,7 @@ QUIT;
 ## Install MRTEELSERVER
 ```
 sudo apt-get install insserv
-```
 
-Then, within the SSH terminal session, type:</br>
-```
 cd /home/pi/MRTEELSERVER
 sudo mv ./www/* /var/www/html
 
