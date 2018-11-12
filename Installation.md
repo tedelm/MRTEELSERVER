@@ -4,6 +4,11 @@
 You have a clean installation of raspberry pi (no webserver,database or such that can make this fail)
 You have access to your raspberry pi using SSH
 
+## Install SUDO
+```
+su root
+apt-get install sudo
+```
 ## Set timezone and hostname
 ```
 sudo raspi-config
@@ -15,6 +20,7 @@ sudo apt-get dist-upgrade
 ```
 ## Download MRTEELSERVER
 ```
+sudo apt-get install git-all
 git clone https://github.com/tedelm/MRTEELSERVER /home/pi/MRTEELSERVER
 ```
 ## Install LAMP
