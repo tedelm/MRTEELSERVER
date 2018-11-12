@@ -25,6 +25,12 @@ switch ($_GET['action']) {
 
     break;
 }
+
+//Get all ispindels - for select/option
+$q_sql_all = mysql_query("SELECT DISTINCT(Name) FROM Data ORDER BY Timestamp DESC LIMIT 7;") or die(mysql_error());
+
+
+
 ?>
 <html>
 <head>
@@ -75,22 +81,35 @@ Brew recipe information
 <form id='updateMyRecipes' method='post' action='recipes.php?action=updateMyRecipes'>
 <table border="0">
 <tr>
-    <td><h1>My Ispindel</td><td><input type='txt' name='IspindelName' value='iSpindel001'></h1></td>
+    <td><h1>My Ispindel</td><td>
+    <select name='IspindelName' id='ispindelform' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
+            <option value='iSpindel001'>Select one</option>    
+    <?php
+                if(isset($IspindelName)){
+                    echo "<option value='' selected='selected'>".$IspindelName."</option>";
+                }
+                while($r_all = mysql_fetch_array($q_sql_all))
+                {
+                  echo "<option value='".$r_all['Name']."'>".$r_all['Name']."</option>";
+                }
+    ?>
+            </select>        
+    </h1></td>
 </tr>
 <tr>
-    <td><h1>My Recipe Name</td><td> <input type='txt' name='MyRecipeName' value='My Recipe Name'></h1></td>
+    <td><h1>My Recipe Name</td><td> <input type='txt' name='MyRecipeName' value='My Recipe Name' style="font-family: Audiowide; font-size: 0.7em;color: #FF9900; width:450px;"></h1></td>
 </tr>
 <tr>
-    <td><h1>My Recipe OG </td><td> <input type='txt' name='MyRecipeOG' value='1.055'></h1></td>
+    <td><h1>My Recipe OG </td><td> <input type='txt' name='MyRecipeOG' value='1.055' style="font-family: Audiowide; font-size: 0.7em;color: #FF9900; width:450px;"></h1></td>
 </tr>
 <tr>
-    <td><h1>My Recipe Calculated FG</td><td>  <input type='txt' name='MyRecipeCalcFG' value='1.014'></h1></td>
+    <td><h1>My Recipe Calculated FG</td><td>  <input type='txt' name='MyRecipeCalcFG' value='1.014' style="font-family: Audiowide; font-size: 0.7em;color: #FF9900; width:450px;"></h1></td>
 </tr>
 <tr>
-    <td><h1>Brew date </td><td> <input type='txt' name='MyRecipeBrewDay' value='2018-12-24'></h1></td>
+    <td><h1>Brew date </td><td> <input type='txt' name='MyRecipeBrewDay' value='2018-12-24' style="font-family: Audiowide; font-size: 0.7em;color: #FF9900; width:450px;"></h1></td>
 </tr>
 </table>
-<input type="submit" value='update' id='updateMyRecipes'>
+<input type="submit" value='update' id='updateMyRecipes' style="font-family: Audiowide; font-size: 0.7em;color: #FF9900; width:450px;hight:75px;">
 </form>
 <?php echo $SQL_INSERT_Recipes_Result_Status; ?>
 </body>

@@ -25,6 +25,11 @@ switch ($_GET['action']) {
 
     break;
 }
+
+//Get all ispindels - for select/option
+$q_sql_all = mysql_query("SELECT DISTINCT(Name) FROM Data ORDER BY Timestamp DESC LIMIT 7;") or die(mysql_error());
+
+
 ?>
 <html>
 <head>
@@ -67,15 +72,32 @@ switch ($_GET['action']) {
 
 <h1>
 Calibration
+</br>
+Select your iSpindel
 </h1>
+<form id='updatePoly' method='post' action='devices.php?action=updateispindel'>
+<select name='IspindelName' id='updatePoly' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
+            <option value='iSpindel001'>Select one</option>    
+    <?php
+                if(isset($IspindelName)){
+                    echo "<option value='' selected='selected'>".$IspindelName."</option>";
+                }
+                while($r_all = mysql_fetch_array($q_sql_all))
+                {
+                  echo "<option value='".$r_all['Name']."'>".$r_all['Name']."</option>";
+                }
+    ?>
+</select>      
+</br>
 <h1>
 Set calibration poly (e.g. <b>0.004415613</b> * $tilt * $tilt + <b>0.120848707</b> * $tilt <b>-6.159197377</b>)
 </h1>
+<input type='txt' name='poly1' value='0.004415613' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
+<input type='txt' name='poly2' value='0.120848707' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
+<input type='txt' name='poly3' value='-6.159197377' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
 </br>
-<form id='updatePoly' method='post' action='devices.php?action=updateispindel'>
-<input type='txt' name='ispindelName' value='iSpindel001'></br>
-<input type='txt' name='poly1' value='0.004415613'><input type='txt' name='poly2' value='0.120848707'><input type='txt' name='poly3' value='-6.159197377'>
-<input type="submit" value='update' id='updatePoly'>
+</br>
+<input type="submit" value='update' id='updatePoly' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;">
 </form>
 <?php echo $SQL_INSERT_Poly_Result_Status; ?>
 </body>
