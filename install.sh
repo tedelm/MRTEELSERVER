@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 su root
 apt-get install sudo
+usermod -aG sudo pi
 sudo raspi-config
 sudo apt-get update
 sudo apt-get dist-upgrade
