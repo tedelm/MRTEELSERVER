@@ -106,6 +106,10 @@ ps -ax | grep MRTEELSERVER
 http://<your raspberry pi ip>/index.php
 ```
 
+## Connect iSpindel to your MRTEELSERVER
+set "Service Type" to TCP</br>
+set "Server Address" to IP of raspberry pi/MRTEELSERVER</br>
+
 ## Default Username and password used
 ```
 mysql
@@ -132,3 +136,4 @@ Now you run the server in consol mode to see output:
 /usr/local/bin/mrteelserver.py
 
 ```
+
