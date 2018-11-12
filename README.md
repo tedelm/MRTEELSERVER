@@ -6,8 +6,11 @@ Webserver and GenericTCP-server for iSpindel
 
 ## Screenshots
 
+Main
 <img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/index.PNG'></br>
+Edit polynomial
 <img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/devices.PNG'></br>
+Edit current recipe
 <img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/recipes.PNG'></br>
 
 
