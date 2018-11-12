@@ -137,3 +137,12 @@ Now you run the server in consol mode to see output:
 
 ```
 
+## Update MRTEELSERVER
+```
+git clone https://github.com/tedelm/MRTEELSERVER /home/pi/MRTEELSERVER-update
+cd /home/pi/MRTEELSERVER-update
+sudo mv ./www/* /var/www/html
+cd ..
+sudo rm -rf /home/pi/MRTEELSERVER-update
+```
+
