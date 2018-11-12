@@ -1,21 +1,30 @@
 <?php
 include_once("include/common_db.php");
-include_once("include/common_db_query.php");
 
-//Get all ispindles
-$q_sql_everything = mysql_query("SELECT * FROM Data ORDER BY Timestamp DESC LIMIT 1;") or die(mysql_error());
-while($r_everything = mysql_fetch_array($q_sql_everything))
-{
-  $timestamp = $r_everything['Timestamp'];
-  $Name =  $r_everything['Name'];
-  #$ID =  $r_everything['ID_'];
-  $Angle =  $r_everything['Angle'];            
-  $Temperature =  $r_everything['Temperature'];
-  $Battery =  $r_everything['Battery'];
-  $Gravity =  $r_everything['Gravity'];      
-  $RSSI =  $r_everything['RSSI'];                    
+switch ($_GET['action']) {
+    case "selectIspindel":
+ 
+        $selectIspindelName = $_POST['selectIspindelName'];
 
+        $q_sql_everything = mysql_query("SELECT * FROM Data WHERE Name='$selectIspindelName' ORDER BY Timestamp DESC LIMIT 1;") or die(mysql_error());
+        while($r_everything = mysql_fetch_array($q_sql_everything))
+        {
+            $timestamp = $r_everything['Timestamp'];
+            $Name =  $r_everything['Name'];
+            #$ID =  $r_everything['ID_'];
+            $Angle =  $r_everything['Angle'];            
+            $Temperature =  $r_everything['Temperature'];
+            $Battery =  $r_everything['Battery'];
+            $Gravity =  $r_everything['Gravity'];      
+            $RSSI =  $r_everything['RSSI'];      
+        }	
+
+    break;
 }
+//Get all ispindels - for select/option
+$q_sql_all = mysql_query("SELECT DISTINCT(Name) FROM Data ORDER BY Timestamp DESC LIMIT 7;") or die(mysql_error());
+
+
 //Chart
 $q_sql_chart = mysql_query("SELECT * FROM Data WHERE Name='$Name' ORDER BY Timestamp ASC LIMIT 20;") or die(mysql_error());
 
@@ -162,7 +171,21 @@ $ABV = $ABV_b * 131.25;
     <tr>
         <td>
         <div class="cardLong card-4">
-        <?php echo $Name; ?>
+        <form id='selectIspindel' class='ispindelform' method='post' action='index.php?action=selectIspindel'>
+            <select name='selectIspindelName' id='ispindelform' style="font-family: Audiowide; font-size: 1em;color: #FF9900; width:450px;" onchange='if(this.value != 0) { this.form.submit(); }'>
+            <option value='iSpindel001'>Select one</option>
+            <?php
+                if(isset($selectIspindelName)){
+                    echo "<option value='' selected='selected'>".$selectIspindelName."</option>";
+                }
+                while($r_all = mysql_fetch_array($q_sql_all))
+                {
+                  echo "<option value='".$r_all['Name']."'>".$r_all['Name']."</option>";
+                }
+            ?>
+            </select>         
+        </form>
+        <!-- <?php echo $Name; ?> -->
         </div>
         </td>
         <td>

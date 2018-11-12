@@ -1,6 +1,5 @@
 <?php
 include_once("include/common_db.php");
-include_once("include/common_db_query.php");
 
 switch ($_GET['action']) {
     case "updateMyRecipes":
