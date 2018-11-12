@@ -6,9 +6,9 @@ Webserver and GenericTCP-server for iSpindel
 
 ## Screenshots
 
-<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/IMG/index.PNG'></br>
-<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/IMG/devices.PNG'></br>
-<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/IMG/recipes.PNG'></br>
+<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/index.PNG'></br>
+<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/devices.PNG'></br>
+<img src='https://github.com/tedelm/MRTEELSERVER/blob/master/img/recipes.PNG'></br>
 
 
 
