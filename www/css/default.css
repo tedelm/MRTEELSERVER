@@ -353,6 +353,13 @@ align-items: center; /* align vertical */
     color: #FF9900;
     font-family: Audiowide;     
   }  
+  .bigtext {
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+    font-size: 1.5em;
+    color: #FF9900;
+    font-family: Audiowide;     
+  }  
 
   h1 {
     font-size: 1em;

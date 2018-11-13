@@ -80,13 +80,15 @@ $ABV = $ABV_b * 131.25;
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Time', 'SG', 'Temp'],
+            ['Time', 'SG', 'Temp', 'Battery'],
             <?php
             while($r_chart = mysql_fetch_array($q_sql_chart))
             {
                 $Timestamp = $r_chart['Timestamp'];
                     $YYYYmmdd = explode(" ", $Timestamp);
                 $Temperature =  (float)$r_chart['Temperature'];
+                $Battery =  $r_chart['Battery'];
+                    $BatteryRound = round($Battery,2);
                 $Angle =  (float)$r_chart['Angle'];
 
                 if(strpos($Poly3, '-') !== false){
@@ -103,7 +105,7 @@ $ABV = $ABV_b * 131.25;
                     $SG_Small = explode(".", round($SG, 3));                    
                 
                 
-                echo "['$YYYYmmdd[0]', $SG_Small[1], $Temperature],";
+                echo "['$YYYYmmdd[0]', $SG_Small[1], $Temperature, $BatteryRound],";
             }
 
             ?>
@@ -203,61 +205,81 @@ $ABV = $ABV_b * 131.25;
     
 </br>
 <div class="card card-small">
-    Temp</br>
+    Temp</br></br>
+    <div class="bigtext">
     <?php echo round($Temperature, 2); ?>
+    </div>
 </div>
 <div class="card card-small">
-    Tilt</br>
+    Tilt</br></br>
+    <div class="bigtext">
     <?php echo round($Angle, 2); ?>
+    </div>
 </div>
 <div class="card card-small">
-    Battery</br>
+    Battery</br></br>
+    <div class="bigtext">
     <?php echo round($Battery, 2); ?>
+    </div>
 </div>
 <div class="card card-small">
-    Ispindel Plato</br>
+    Ispindel Plato</br></br>
+    <div class="bigtext">
     <?php echo round($Gravity, 2); ?>
+    </div>
 </div>
 <div class="card card-small">
-    RSSI</br>
+    RSSI</br></br>
+    <div class="bigtext">
     <?php echo round($RSSI, 0); ?>
+    </div>
 </div>
 </br>
 
 <div class="card card-small">
-    PLATO</br>
+    PLATO</br></br>
+    <div class="bigtext">
     <?php echo round($Plato, 2); ?>
+    </div>
 </div>
 <div class="card card-small">
-    SG</br>
+    SG</br></br>
+    <div class="bigtext">
     <?php echo round($SG, 3); ?>
+    </div>
 </div>
 <div class="card card-small">
-    OG</br>
+    OG</br></br>
+    <div class="bigtext">
     <?php if(isset($MyRecipeOG)){
         echo round($MyRecipeOG, 3);
         }else{
             echo "N/A";
         };
     ?>
+    </div>
 </div>
 <div class="card card-small">
-    Calc FG</br>
+    Calc FG</br></br>
+    <div class="bigtext">
     <?php if(isset($MyRecipeCalcFG)){
         echo round($MyRecipeCalcFG, 3);
         }else{
             echo "N/A";
         };
     ?>
+    </div>
 </div>
 <div class="card card-small">
-    ABV</br>
+    ABV</br></br>
+    <div class="bigtext">
     <?php if(isset($ABV)){
         echo round($ABV, 2);
         }else{
             echo "N/A";
         };
     ?>
+    </div>
 </div>
 
 <div id="curve_chart" class="card-small" style="width: 900px; height: 600px"></div>
