@@ -8,6 +8,7 @@ You have access to your raspberry pi using SSH
 ```
 su root
 apt-get install sudo
+usermod -a -G sudo pi
 ```
 ## Set timezone and hostname
 ```
