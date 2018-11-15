@@ -50,7 +50,7 @@ GRANT ALL PRIVILEGES ON `mrteeldb`.* TO 'mrteel' WITH GRANT OPTION;
 CREATE TABLE `Data` (
 	`Timestamp` datetime NOT NULL,
 	`Name` varchar(64) COLLATE ascii_bin NOT NULL,
-	`ID_` int NOT NULL,
+	`ID` int NOT NULL,
 	`Angle` double NOT NULL,
 	`Temperature` double NOT NULL,
 	`Battery` double NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `Data` (
 	`UserToken` varchar(64) COLLATE ascii_bin,
 	`Interval` int,
 	`RSSI` int,
-PRIMARY KEY (`Timestamp`,`Name`,`ID_`)
+PRIMARY KEY (`Timestamp`,`Name`,`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin COMMENT='iSpindle Data';
 
 CREATE TABLE `MyIspindles` (
