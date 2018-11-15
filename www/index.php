@@ -86,6 +86,7 @@ $ABV = $ABV_b * 131.25;
             {
                 $Timestamp = $r_chart['Timestamp'];
                     $YYYYmmdd = explode(" ", $Timestamp);
+                    $HHMMSS = explode(":", $Timestamp);
                 $Temperature =  (float)$r_chart['Temperature'];
                 $Battery =  $r_chart['Battery'];
                     $BatteryRound = round($Battery,2);
@@ -105,7 +106,7 @@ $ABV = $ABV_b * 131.25;
                     $SG_Small = explode(".", round($SG, 3));                    
                 
                 
-                echo "['$YYYYmmdd[0]', $SG_Small[1], $Temperature, $BatteryRound],";
+                echo "['$YYYYmmdd[0] $YYYYmmdd[1]', $SG_Small[1], $Temperature, $BatteryRound],";
             }
 
             ?>
