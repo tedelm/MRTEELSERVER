@@ -1,0 +1,238 @@
+// Specification
+//
+// id: each chart requires its own unique ID
+// chart-type: Just set to 'donut'
+// data-chart-max: The number of items in the set being charted
+// data-chart-segments: { index : [starting point of segment, # of units in segment, color]}
+// data-chart-text: The text to appear within the donut hole
+// data-chart-caption: the text to appear beneath the chart
+// data-chart-initial-rotate: The initial angle from which the donut populates the chart
+
+div.huge-chartbox
+  div(
+  id="failureChart1",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","30","#19C5F5"],  "1":["30","70","#ecebeb"] }',
+  data-chart-text="30%", 
+  data-chart-caption="Failure Rate",
+  data-chart-initial-rotate="180"
+  )
+  
+  div(
+  id="thingsChart1", 
+  chart-type="donut", 
+  data-chart-max="2000", 
+  data-chart-segments='{  "0":["0","1400","#F18605"],  "1":["1400","600", "#ecebeb"]  }', 
+  data-chart-text="1400", 
+  data-chart-caption="Things to do"
+  )
+  
+  div(
+  id="chart2", 
+  chart-type="donut", 
+  data-chart-max="200", 
+  data-chart-segments='{  "0":["0","140","#55DB2E"],  "1":["140","60", "#19A7F5"]  }'
+  )
+  
+  div(
+  id="chart3", 
+  chart-type="donut", 
+  data-chart-max="1000", 
+  data-chart-segments='{  "0":["0","50","#FDCA00"],  "1":["50","450","#19A7F5"],  "2":["500","500","#8100C8"]  }',
+  data-chart-initial-rotate="90", 
+  data-chart-caption="3 Segments, 90 degree rotation",
+  data-chart-text="90°")
+  
+  div(
+  id="failureChart3",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","50","#19A7F5"], "1":["50","50","#55DB2E"] }',
+  data-chart-text="50%", 
+  data-chart-caption="Failure Rate"
+  )
+  
+br
+div.large-chartbox(style="margin-top: 100px;")
+  div(
+  id="failureChart",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","30","#19A7F5"],  "1":["30","70","#ecebeb"] }',
+  data-chart-text="30%", 
+  data-chart-caption="Failure Rate",
+  data-chart-initial-rotate="180"
+  )
+  
+  div(
+  id="thingsChart", 
+  chart-type="donut", 
+  data-chart-max="2000", 
+  data-chart-segments='{  "0":["0","1400","#F16805"],  "1":["1400","600", "#ecebeb"]  }', 
+  data-chart-text="1400", 
+  data-chart-caption="Things to do"
+  )
+  
+  div(
+  id="chart2", 
+  chart-type="donut", 
+  data-chart-max="200", 
+  data-chart-segments='{  "0":["0","140","#55DB2E"],  "1":["140","60", "#19A7F5"]  }'
+  )
+  
+  div(
+  id="chart3", 
+  chart-type="donut", 
+  data-chart-max="1000", 
+  data-chart-segments='{  "0":["0","50","#FDCA00"],  "1":["50","450","#19A7F5"],  "2":["500","500","#8100C8"]  }',
+  data-chart-initial-rotate="90", 
+  data-chart-caption="3 Segments, 90 degree rotation",
+  data-chart-text="90°")
+  
+  div(
+  id="failureChart3",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","50","#19A7F5"], "1":["50","50","#55DB2E"] }',
+  data-chart-text="50%", 
+  data-chart-caption="Failure Rate"
+  )
+  
+br
+div.chartbox(style="margin-top: 100px;")
+  div(
+  id="failureChart",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","30","#19A7F5"],  "1":["30","70","#ecebeb"] }',
+  data-chart-text="30%", 
+  data-chart-caption="Failure Rate",
+  data-chart-initial-rotate="180"
+  )
+  
+  div(
+  id="thingsChart", 
+  chart-type="donut", 
+  data-chart-max="2000", 
+  data-chart-segments='{  "0":["0","1400","#F16805"],  "1":["1400","600", "#ecebeb"]  }', 
+  data-chart-text="1400", 
+  data-chart-caption="Things to do"
+  )
+  
+  div(
+  id="chart2", 
+  chart-type="donut", 
+  data-chart-max="200", 
+  data-chart-segments='{  "0":["0","140","#55DB2E"],  "1":["140","60", "#19A7F5"]  }'
+  )
+  
+  div(
+  id="chart3", 
+  chart-type="donut", 
+  data-chart-max="1000", 
+  data-chart-segments='{  "0":["0","50","#FDCA00"],  "1":["50","450","#19A7F5"],  "2":["500","500","#8100C8"]  }',
+  data-chart-initial-rotate="90", 
+  data-chart-caption="3 Segments, 90 degree rotation",
+  data-chart-text="90°")
+  
+  div(
+  id="failureChart3",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","50","#19A7F5"], "1":["50","50","#55DB2E"] }',
+  data-chart-text="50%", 
+  data-chart-caption="Failure Rate"
+  )
+
+br
+div.small-chartbox(style="margin-top: 100px;")
+  div(
+  id="failureChart",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","30","#19A7F5"],  "1":["30","70","#ecebeb"] }',
+  data-chart-text="30%", 
+  data-chart-caption="Failure Rate",
+  data-chart-initial-rotate="180"
+  )
+  
+  div(
+  id="thingsChart", 
+  chart-type="donut", 
+  data-chart-max="2000", 
+  data-chart-segments='{  "0":["0","1400","#F16805"],  "1":["1400","600", "#ecebeb"]  }', 
+  data-chart-text="1400", 
+  data-chart-caption="Things to do"
+  )
+  
+  div(
+  id="chart2", 
+  chart-type="donut", 
+  data-chart-max="200", 
+  data-chart-segments='{  "0":["0","140","#55DB2E"],  "1":["140","60", "#19A7F5"]  }'
+  )
+  
+  div(
+  id="chart3", 
+  chart-type="donut", 
+  data-chart-max="1000", 
+  data-chart-segments='{  "0":["0","50","#FDCA00"],  "1":["50","450","#19A7F5"],  "2":["500","500","#8100C8"]  }',
+  data-chart-initial-rotate="90", 
+  data-chart-caption="3 Segments, 90 degree rotation",
+  data-chart-text="90°")
+  
+  div(
+  id="failureChart3",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","50","#19A7F5"], "1":["50","50","#55DB2E"] }',
+  data-chart-text="50%", 
+  data-chart-caption="Failure Rate"
+  )
+  
+br
+div.tiny-chartbox(style="margin-top: 100px;")
+  div(
+  id="failureChart",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","30","#19A7F5"],  "1":["30","70","#ecebeb"] }',
+  data-chart-text="30%", 
+  data-chart-caption="Failure Rate",
+  data-chart-initial-rotate="180"
+  )
+  
+  div(
+  id="thingsChart", 
+  chart-type="donut", 
+  data-chart-max="2000", 
+  data-chart-segments='{  "0":["0","1400","#F16805"],  "1":["1400","600", "#ecebeb"]  }', 
+  data-chart-text="1400", 
+  data-chart-caption="Things to do"
+  )
+  
+  div(
+  id="chart2", 
+  chart-type="donut", 
+  data-chart-max="200", 
+  data-chart-segments='{  "0":["0","140","#55DB2E"],  "1":["140","60", "#19A7F5"]  }'
+  )
+  
+  div(
+  id="chart3", 
+  chart-type="donut", 
+  data-chart-max="1000", 
+  data-chart-segments='{  "0":["0","50","#FDCA00"],  "1":["50","450","#19A7F5"],  "2":["500","500","#8100C8"]  }',
+  data-chart-initial-rotate="90", 
+  data-chart-caption="3 Segments, 90 degree rotation",
+  data-chart-text="90°")
+  
+  div(
+  id="failureChart3",
+  chart-type="donut",
+  data-chart-max="100",
+  data-chart-segments='{ "0":["0","50","#19A7F5"], "1":["50","50","#55DB2E"] }',
+  data-chart-text="50%", 
+  data-chart-caption="Failure Rate"
+  )

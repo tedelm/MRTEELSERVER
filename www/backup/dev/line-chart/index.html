@@ -1,0 +1,56 @@
+  <html>
+  <head>
+    <script type="text/javascript" src="loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'Gravity'],
+          ['01:00:00',  1.055011],
+          ['01:30:00',  1.045011],
+          ['02:00:00',  1.040011],
+          ['01:00:00',  1.039011],
+          ['01:30:00',  1.038011],
+          ['02:00:00',  1.037011],
+          ['01:00:00',  1.036011],
+          ['01:30:00',  1.035011],
+          ['02:00:00',  1.028011],
+          ['01:30:00',  1.045011],
+          ['02:00:00',  1.040011],
+          ['01:00:00',  1.039011],
+          ['01:30:00',  1.038011],
+          ['02:00:00',  1.037011],
+          ['01:00:00',  1.036011],
+          ['01:30:00',  1.035011],
+          ['02:00:00',  1.028011],
+          ['01:30:00',  1.045011],
+          ['02:00:00',  1.040011],
+          ['01:00:00',  1.039011],
+          ['01:30:00',  1.038011],
+          ['02:00:00',  1.037011],
+          ['01:00:00',  1.036011],
+          ['01:30:00',  1.035011],
+          ['02:00:00',  1.028011],		  
+          ['02:30:00',  1.025011]
+        ]);
+
+        var options = {
+          title: 'iSpindel Gravity id: xyz001  last 24h',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+	<center>
+    <div id="curve_chart" style="width: 900px; height: 600px"></div>
+	</center>
+  </body>
+</html>

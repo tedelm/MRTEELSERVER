@@ -1,0 +1,147 @@
+//Donut Chart
+.tiny-chartbox {
+    .chartbox(60px, .78, 115px)
+}
+
+.small-chartbox {
+    .chartbox(85px, .78, 115px)
+}
+
+.chartbox {
+    .chartbox(110px, .78, 115px)
+}
+
+.large-chartbox {
+    .chartbox(135px, .78, 115px)
+}
+
+.huge-chartbox {
+    .chartbox(160px, .6, 115px)
+}
+
+.giant-chartbox {
+    .chartbox(350px, .4, 0)
+}
+
+.chartbox(@w, @hw, @m) {
+    @chart-width: @w;
+    @donut-hole-width: @chart-width*@hw;
+
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flexbox;
+    display: inline-flex;
+    margin-bottom: (.4 * @chart-width);
+
+    div[chart-type*="donut"] {
+        width: @chart-width;
+        height: @chart-width;
+        display: block;
+        position: relative;
+        margin-right: @m;
+    }
+
+        div[chart-type*="donut"]:last-of-type {
+            margin-right: 0;
+        }
+
+    div.donut-hole {
+        height: @donut-hole-width;
+        width: @donut-hole-width;
+        background-color: #fff;
+        z-index: 20;
+        position: absolute;
+        top: (1/2) * @chart-width - (1/2) * @donut-hole-width;
+        left: (1/2) * @chart-width - (1/2) * @donut-hole-width;
+        border-radius: @donut-hole-width;
+        line-height: 0.25 * @chart-width;
+    }
+
+    span.donut-filling {
+        position: absolute;
+        display: block;
+        vertical-align: middle;
+        font-family: "Open Sans";
+        font-weight: 300;
+        color: #616161;
+        font-size: 0.24444 * @chart-width;
+        top: 50%;
+        margin-top: -(1/2) * (0.25 * @chart-width);
+        width: @donut-hole-width;
+        height: 0.25 * @chart-width;
+        text-align: center;
+        cursor: default;
+        overflow: none;
+    }
+
+    div.donut-caption-wrapper {
+        width: @chart-width;
+        align-content: center;
+        position: relative;
+        top: @chart-width + ((200/9/100) * @chart-width);
+    }
+
+    span.donut-caption {
+        display: block;
+        text-align: center;
+        font-family: "Open Sans";
+        color: #616161;
+        font-size: (260/27/100) * @chart-width;
+        font-weight: 600;
+        cursor: default;
+        margin: 0 auto;
+    }
+
+    .donut-bite {
+        position: absolute;
+        width: @chart-width / 2;
+        height: @chart-width;
+        overflow: hidden;
+        top: 0;
+        left: (@chart-width + 1)/2;
+        -moz-transform-origin: left center;
+        -ms-transform-origin: left center;
+        -o-transform-origin: left center;
+        -webkit-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+        .donut-bite.large {
+            width: @chart-width;
+            height: @chart-width;
+            left: 0;
+            //left: @chart-width / 2;
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+        }
+
+        .donut-bite:BEFORE {
+            content: "";
+            position: absolute;
+            width: @chart-width/2;
+            height: @chart-width;
+            top: 0;
+            left: -@chart-width/2;
+            border-radius: @chart-width/2 0 0 @chart-width/2;
+            -moz-transform-origin: right center;
+            -ms-transform-origin: right center;
+            -o-transform-origin: right center;
+            -webkit-transform-origin: right center;
+            transform-origin: right center;
+        }
+
+        .donut-bite.large:BEFORE {
+            left: 0;
+        }
+
+        .donut-bite.large:AFTER {
+            content: "";
+            position: absolute;
+            width: @chart-width / 2;
+            height: @chart-width;
+            left: @chart-width / 2;
+            border-radius: 0 @chart-width/2 @chart-width/2 0;
+        }
+}
