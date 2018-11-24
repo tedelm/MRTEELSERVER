@@ -26,7 +26,7 @@ $q_sql_all = mysql_query("SELECT DISTINCT(Name) FROM Data ORDER BY Timestamp DES
 
 
 //Chart
-$q_sql_chart = mysql_query("SELECT * FROM Data WHERE Name='$Name' ORDER BY Timestamp ASC LIMIT 280;") or die(mysql_error());
+$q_sql_chart = mysql_query("SELECT * FROM (SELECT  * FROM Data WHERE Name='$Name' ORDER BY Timestamp DESC) sub ORDER BY Timestamp ASC;") or die(mysql_error());
 
 //Recipe
 $q_sql_ispindelrecipe = mysql_query("SELECT * FROM MyRecipes WHERE IspindelName='$Name' ORDER BY ID_ DESC LIMIT 1;") or die(mysql_error());
