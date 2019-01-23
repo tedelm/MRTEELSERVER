@@ -26,7 +26,7 @@ git clone https://github.com/tedelm/MRTEELSERVER /home/pi/MRTEELSERVER
 ```
 ## Install LAMP
 ```
-UPDATE if you are running "stretch" rasbian:
+UPDATE if you are running "stretch" rasbian (Requires php5):
 #Update system
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -37,7 +37,7 @@ sudo a2enmod rewrite
 sudo service apache2 restart
 
 #Install PHP
-sudo apt-get install php libapache2-mod-php -y
+sudo apt-get install php5 libapache2-mod-php5 -y
 
 #Install MySQL
 sudo apt-get install mysql-server php-mysql -y
